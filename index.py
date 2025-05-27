@@ -37,7 +37,7 @@ class Account:
         if amount <= 0:
             return "You can't transfer a negative amount."
         if self.balance - amount < self.min_balance:
-            return "minimum balance restriction."
+            return "Minimum balance restriction."
         self.transfers.append(amount)
         self.balance -= amount
         user_account.deposit(amount)
@@ -111,8 +111,32 @@ class Account:
         self.loan_repayments.clear()
         self.balance = 0
         return "Account has been closed."
-account=Account("Helen Yemane")
-print(account._is_active())
-print(account.deposit(45000))
-print(account.withdraw(5500))
-# print(account.transfer,)
+    
+
+
+
+# Create two accounts
+acc1 = Account("Helen")
+acc2 = Account("Berhe")
+
+
+print(acc1.deposit(500))         
+print(acc1.withdraw(200))        
+print(acc1.transfer(100, acc2))  
+print(acc2.get_balance())  
+print(acc1.view_account_details())
+print(acc1.request_loan(300))    
+print(acc1.repay_loan(100))     
+print(acc1.apply_interest())
+print(acc1.change_account_owner("Hilari"))
+print(acc1.set_min_balance(50))
+print(acc1.freeze_account())
+print(acc1.deposit(50))         
+print(acc1.unfreeze_account())
+print(acc1.deposit(50))   
+
+acc1.get_statement()
+acc1.get_loan_statement()
+
+print(acc1.close_account())
+print(acc1.deposit(10))   
