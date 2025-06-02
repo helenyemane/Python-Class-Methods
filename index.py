@@ -17,7 +17,8 @@ class Account:
             return "Account is frozen."
         return None
     def deposit(self, amount):
-        if self._is_active(): return self._is_active()
+        if self._is_active(): 
+            return self._is_active()
         if amount <= 0:
             return "You can't deposit a negative amount."
         self.deposits.append(amount)
